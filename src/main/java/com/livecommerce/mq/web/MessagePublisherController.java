@@ -20,12 +20,13 @@ import static org.slf4j.LoggerFactory.getLogger;
 @RestController()
 public class MessagePublisherController {
 
+    public static final String PUBLISH = "/publish-message";
     @Autowired
     private RabbitTemplate template;
 
     Logger logger = getLogger(MessagePublisherController.class);
 
-    @PostMapping(value = "/publish", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = PUBLISH, consumes = MediaType.APPLICATION_JSON_VALUE)
     public String publicMessage(@RequestBody CustomMessage message){
         logger.info("Welcome /publish {} "+message);
         message.setMessageId(UUID.randomUUID().toString());

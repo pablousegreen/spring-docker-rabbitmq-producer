@@ -1,9 +1,10 @@
 # spring-docker-rabbitmq-producer
 
 //CREATE IMAGE
-gradle build  // create jar spring-docker-rabbitmq-producer-0.0.1-SNAPSHOT.jar
+gradle build  // create jar spring-docker-rabbitmq-producer-0.0.1-SNAPSHOT.ja
+gradle build  // or ./gradlew clean build -> create jar spring-docker-rabbitmq-producer-0.0.1-SNAPSHOT.jar
 docker build -t spring-rabbitmq:v100 .  // put the jar into docker image
-docker run --env=local -dp 9001:9001 spring-rabbitmq:v100
+docker run --env=dev -dp 9001:9001 spring-rabbitmq:v100
 docker ps
 
 // download rabbit mq
